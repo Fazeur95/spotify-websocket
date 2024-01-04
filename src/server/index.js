@@ -1,12 +1,8 @@
 // Importation des modules nécessaires
-// Importation des modules nécessaires
 const express = require('express');
 const http = require('http');
 const {Server} = require('socket.io');
 const cors = require('cors');
-const {v4: uuidv4} = require('uuid');
-
-// Le reste de votre code reste le même
 
 // Création de l'application Express
 const app = express();
@@ -30,20 +26,23 @@ io.on('connection', socket => {
   console.log('User connected');
 
   // Gestion de l'événement 'playSound'
-  socket.on('playSound', track => {
-    const trackId = uuidv4(); // Générer un ID unique pour le morceau
+  socket.on('playSound', ({trackId, currentTime}) => {
     console.log(
-      `Received playSound event with track ${JSON.stringify(track, null, 2)}`,
+      `Received playSound event with trackId ${trackId} and currentTime ${currentTime}`,
     );
-    socket.broadcast.emit('playSound', {...track, id: trackId}); // Inclure l'ID dans l'objet track
+    socket.broadcast.emit('playSound', {trackId, currentTime});
   });
 
-  // Gestion des événements 'pauseSound' et 'resumeSound'
-  ['pauseSound', 'resumeSound'].forEach(event => {
-    socket.on(event, () => {
-      console.log(`Received ${event} event`);
-      socket.broadcast.emit(event);
-    });
+  // Gestion de l'événement 'pauseSound'
+  socket.on('pauseSound', () => {
+    console.log('Received pauseSound event');
+    socket.broadcast.emit('pauseSound');
+  });
+
+  // Gestion de l'événement 'resumeSound'
+  socket.on('resumeSound', ({currentTime}) => {
+    console.log(`Received resumeSound event with currentTime ${currentTime}`);
+    socket.broadcast.emit('resumeSound', {currentTime});
   });
 
   // Gestion de la déconnexion
