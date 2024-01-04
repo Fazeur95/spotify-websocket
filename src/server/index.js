@@ -7,7 +7,9 @@ const cors = require('cors');
 // Création de l'application Express
 const app = express();
 app.use(cors());
-
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 // Création du serveur HTTP
 const server = http.createServer(app);
 
