@@ -13,10 +13,10 @@
     "serve": "node dist/index.js",
     "preview": "npm run build && npm run serve"
   },
-
   "devDependencies": {
     "@babel/cli": "^7.23.4",
     "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.7"
+    "@babel/preset-env": "^7.23.7",
+    "babel-cli": "^6.26.0"
   }
 }
