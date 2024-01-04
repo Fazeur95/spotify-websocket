@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
-    "dev": "nodemon server/index.js"
-    
-
+    "start": "node server/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
