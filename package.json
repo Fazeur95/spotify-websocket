@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "dev": "nodemon server/index.js",
-    "build": "npx babel server -d dist",
+    "build": "npx @babel/cli server -d dist",
     "preview": "node dist/index.js"
   },
   "devDependencies": {
