@@ -1,9 +1,13 @@
 {
+  "name": "spotify-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server/index.js",
-    "build": "babel server -d dist",
-    "serve": "node dist/index.js",
-    "preview": "npm run build && npm run serve"
+    "start": "nodemon server/index.js",
+    "dev": "nodemon server/index.js"
+    
+
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -12,12 +16,6 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.4",
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.7",
     "nodemon": "^3.0.2"
-  },
-  "engines": {
-    "node": ">=18.18.0 <19.0.0"
   }
 }
