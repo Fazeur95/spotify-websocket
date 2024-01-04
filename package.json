@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server.js --exec babel-node -e js",
-    "build": "babel server/index.js -d dist",
+    "build": "npx babel server/index.js -d dist",
     "serve": "node dist/index.js",
     "preview": "npm run build && npm run serve"
   },
