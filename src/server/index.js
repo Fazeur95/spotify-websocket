@@ -29,5 +29,3 @@ io.on('connection', socket => {
 server.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
-
-//https://spotify-websocket.onrender.com
